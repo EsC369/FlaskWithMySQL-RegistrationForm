@@ -1,0 +1,27 @@
+<html>
+<head>
+  <title>Login and Registration</title>
+</head>
+<body>
+    <h1>Home - Welcome</h1> 
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class=flashes>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}     
+    <p>You are logged in!</p>    
+    <p>Welcome  {{ session['user_first_name']}}. </p>
+    <p>Logged in: {{ session['logged_in'] }}
+    <form action="/logout" method="GET">
+        <button>Logout</button>
+    </form>
+    <form action="/" method="GET">
+        <button>Login Page</button>
+    </form>
+</body>
+
+</html>
